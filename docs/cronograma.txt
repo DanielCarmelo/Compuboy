@@ -1,0 +1,97 @@
+🎮 LISTA DE VERIFICACIÓN: Desarrollo de Juego de Plataformas HTML5
+📦 FASE 1: Entorno de Desarrollo
+Editor de código — VS Code (con extensiones: Live Server, ESLint, Prettier)
+Node.js instalado — para herramientas y compilaciones
+Git + cuenta GitHub — control de versiones desde el día 1
+Servidor local — Live Server o (los activos no se cargan con )npx servefile://
+Navegadores para pruebas : Chrome, Firefox (DevTools: F12)
+Tiled (editor de mapas de azulejos) — gratis y estándar de la industria
+🛠️ FASE 2: Decisiones Técnicas
+Motor/Estructura — elige uno:
+Phaser 3 → el más popular, todo incluido ⭐ recomendado para empezar
+PixiJS → solo renderizado, más manual de control
+Vanilla JS + Canvas → máximo aprendizaje, más trabajo
+Lenguaje : JavaScript (más simple) o TypeScript (más robusto)
+Resolución base — ej. 320x180 (pixel art) o 1920x1080, y estrategia de escalada
+Estructura de carpetas:
+texto
+mi-juego/
+├── index.html
+├── src/
+│   ├── main.js        (punto de entrada)
+│   ├── scenes/
+│   ├── entities/
+│   └── systems/
+├── assets/
+│   ├── sprites/
+│   ├── audio/
+│   └── maps/
+└── README.md
+⚙️ FASE 3: Arquitectura Core (el corazón)
+Game Loop — con delta time (¡el loop madre de todo! 🔄)requestAnimationFrame
+Sistema de escenas/estados — Boot → Preload → Menú → Juego → Game Over
+Manejo de entrada — teclado, y gamepad/táctil si aviones móviles
+Asset Manager — precarga de sprites/audios con barra de carga
+🏃 FASE 4: Sistemas del Plataformero
+Física — gravedad, aceleración, fricción, velocidad máxima
+Movimiento del jugador:
+Correr (izq/der)
+Saltar (con altura variable: soltar botón = salto corto)
+Tiempo de coyote (~100ms de gracia tras salir de plataforma)
+Jump buffer (permitir salto si presionas justo antes de aterrizar)
+Colisiones:
+Jugador vs suelo/plataformas (AABB o Tiles)
+Plataformas de una vía (puedes saltar desde abajo)
+Paredes y límites del nivel
+Cámara — seguir al jugador con suavizado, deadzone y límites del mapa
+Carga de niveles — Tilemaps desde Tiled (JSON)
+Enemigos — patrones básicos (patrulla, persigue, estático)
+Sistema de daño/vidas — invulnerabilidad temporal tras golpe (i-frames)
+🎨 FASE 5: Activos
+Sprites del jugador — idle, correr, saltar, caer, daño (hojas de sprites de EE. UU.)
+Tileset — suelos, plataformas, decoración
+Enemigos (2-4 tipos mínimo)
+Animaciones — frame timing correcto
+Audio:
+Música de fondo (bucle perfecto)
+SFX: salto, daño, moneda, muerte
+Fuente para el juego (legible y con licencia)
+✨ FASE 6: Game Feel (lo que lo hace "rico")
+Partículas — polvo al aterrizar, explosiones
+Vibración de pantalla en impactos
+Estiramiento y squash en saltos
+Tweens/transiciones entre escenas
+Rechazo al recibir daño
+🖥️ FASE 7: UI/UX
+Menú principal
+HUD — vidas, puntuación, monedas
+Pausa (con tecla ESC/P)
+Pantalla Game Over + Reintentar
+Tutorial implícito (primer nivel enseña controles)
+💾 FASE 8: Persistencia y Extras
+localStorage — récord de puntos, nivel alcanzado
+Responsive — el lienzo escala a cualquier pantalla
+Controles táctiles (si vas para móvil)
+🐛 FASE 9: Depuración y Optimización
+Modo depuración : mostrar hitboxes, FPS, coordenadas
+Agrupación de objetos (para balas/partículas)
+Culling (no dibujar lo que está fuera de cámara)
+Probar en Firefox + Chrome + móvil
+🚀 FASE 10: Despliegue
+Build/minificado (si aplica)
+Páginas de GitHub : alojamiento gratuito directo de tu repositorio
+Subir a itch.io — la comunidad de juegos indie
+Prueba final: jugar desde el enlace publicado
+
+🔄 Cómo usarla con el loop:
+texto
+MIENTRAS (queden puntos pendientes):
+   1. Toma el siguiente punto de la fase actual
+   2. Desarróllalo
+   3. Pruébalo en el navegador
+   4. ¿Funciona? → marca ✅ y sigue
+      ¿Falla? → corrige y repite
+   5. Al terminar una fase → commit en Git 📌
+💡 Mi consejo de arranque:
+Semana 1: Fases 1-3 + un cuadrado que salta sobre rectángulos. Eso es tu MVP. Todo lo demás se construye encima.
+¿Quieres que empecemos? Puedo generarte la estructura base del proyecto con el game loop funcionando, o si ya eliges motor (Phaser vs vanilla), te armo el esqueleto. 🚀
